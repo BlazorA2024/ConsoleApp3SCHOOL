@@ -17,7 +17,7 @@ public interface IRepsitory<T>
 
 public abstract class Repository<T> : IRepsitory<T>
 {
-    private List<T> items = new();
+    private static readonly List<T> items = new();
 
     public ICollection<T> Items => items;
 

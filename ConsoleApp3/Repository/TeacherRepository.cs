@@ -24,10 +24,10 @@ public class TeacherRepository : Repository<TeacherModel>, ITeacherRepository
 
     private readonly IRowRepository _rowRepository;
     private readonly ISchoolRepository _schoolRepository;
-    public TeacherRepository(IRowRepository rowRepository, ISchoolRepository schoolRepository)
+    public TeacherRepository()
     {
-        _rowRepository = rowRepository;
-        _schoolRepository = schoolRepository;
+        _rowRepository = new RowRepository();
+         //_schoolRepository =new SchoolRepository();
     }
     public ICollection<StudentModel> GetStudents(string id)
     {

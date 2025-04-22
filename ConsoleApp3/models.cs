@@ -40,9 +40,14 @@ public class CardModel
 public class StudentModel
 {
     public string Id { get; set; } = new IDgenerate().GenvetId("Student", '-', 10, 4, 3);
-    public string RowId { get; set; }
-    public RowModel Row { get; set; }
-    public CardModel card {  get; set; }  
+    public string? RowId { get; set; }
+
+
+    public RowModel? Row { get; set; }
+    public CardModel? card {  get; set; }  
+     
+    public  string? SchoolId { get; set; }
+    public SchoolModel? School { get; set; }
     public ICollection<ModulModel> Moduls { get; set; } = new List<ModulModel>();
     public ICollection<TeacherModel> Teachers { get; set; } = new List<TeacherModel>();
 }
@@ -52,6 +57,8 @@ public class RowModel
     public string Name { get; set; }
     public string RowId { get; set; }
     public string RowName { get; set; }
+    public string? SchoolId { get; set; }
+    public SchoolModel? School { get; set; }
     public ICollection<ModulModel> Moduls { get; set; } = new List<ModulModel>();
     public ICollection<TeacherModel> Teachers { get; set; } = new List<TeacherModel>();
     public ICollection<StudentModel> Students { get; set; } = new List<StudentModel>();
@@ -65,6 +72,7 @@ public class ModulModel
 {
     public string Id { get; set; } = new IDgenerate().GenvetId("Modul", '-', 10, 4, 3);
     public string Name { get; set; }
+
     public string RowId { get; set; }
     public string RowName { get; set; }
     public ICollection<TeacherModel> Teachers { get; set; } = new List<TeacherModel>();
@@ -77,8 +85,11 @@ public class TeacherModel
 {
     public string Id { get; set; } = new IDgenerate().GenvetId("Teacher", '-', 10, 4, 3);
     public string Name { get; set; }
+
     public string RowId { get; set; }
     public string RowName { get; set; }
+
+    public ICollection<SchoolModel> SchoolModels { get; set; } = new List<SchoolModel>();
     public ICollection<ModulModel> Moduls { get; set; } = new List<ModulModel>();
     public ICollection<StudentModel> Students { get; set; } = new List<StudentModel>();
 }

@@ -28,10 +28,10 @@ public class StudentRepository : Repository<StudentModel>, IStudentRepository
     private readonly IRowRepository _rowRepository;
     private readonly INameRepository _nameRepository;
 
-    public StudentRepository(IRowRepository rowRepository, INameRepository nameRepository)
+    public StudentRepository()
     {
-        _rowRepository = rowRepository;
-        _nameRepository = nameRepository;
+        _rowRepository =new  RowRepository();
+        _nameRepository =new NameRepository();
     }
     public RowModel GetRow(string id)
     {
